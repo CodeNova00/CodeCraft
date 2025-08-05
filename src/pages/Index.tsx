@@ -3,7 +3,7 @@ import { DifficultySelector } from "@/components/DifficultySelector";
 import { QuestionBrowser, Question } from "@/components/QuestionBrowser";
 import { CodeEditor } from "@/components/CodeEditor";
 import { ResultsPanel, TestResult } from "@/components/ResultsPanel";
-import { questionsData } from "@/data/questions";
+import { supabase } from "@/integrations/supabase/client";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,16 +13,34 @@ type Language = 'python' | 'javascript';
 const Index = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [results, setResults] = useState<TestResult[] | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [error, setError] = useState<string | undefined>();
   const { toast } = useToast();
 
-  const handleDifficultySelect = (difficulty: Difficulty) => {
+  const handleDifficultySelect = async (difficulty: Difficulty) => {
     setSelectedDifficulty(difficulty);
     setSelectedQuestion(null);
     setResults(null);
     setError(undefined);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('get-questions', {
+        body: JSON.stringify({ difficulty })
+      });
+      
+      if (error) throw error;
+      setQuestions(data || []);
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      setQuestions([]);
+      toast({
+        title: "Error Loading Questions",
+        description: "Failed to load questions from backend.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleQuestionSelect = (question: Question | null) => {
@@ -105,7 +123,7 @@ const Index = () => {
     );
   }
 
-  const questions = questionsData[selectedDifficulty] || [];
+  
 
   // Show question browser if no question is selected
   if (!selectedQuestion) {
