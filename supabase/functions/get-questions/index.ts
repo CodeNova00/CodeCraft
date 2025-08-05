@@ -378,8 +378,7 @@ serve(async (req) => {
   }
 
   try {
-    const url = new URL(req.url)
-    const difficulty = url.searchParams.get('difficulty')
+    const { difficulty } = await req.json()
 
     if (!difficulty || !questions_data[difficulty]) {
       return new Response(
