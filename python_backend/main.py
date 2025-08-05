@@ -7,10 +7,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "http://127.0.0.1:8080"],
+    allow_origins=[
+        "http://localhost:8080", 
+        "http://127.0.0.1:8080",
+        "https://your-frontend-name.onrender.com" # <--- Add your deployed frontend URL here
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"], # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"], # Allows all headers
 )
 
 questions_data = {
@@ -400,3 +404,4 @@ def get_questions(request_body: GetQuestionsRequest):
             status_code=400,
             detail=f"Invalid difficulty level: '{difficulty}'. Must be one of {list(questions_data.keys())}"
         )
+
