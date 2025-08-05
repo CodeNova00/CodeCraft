@@ -3,7 +3,6 @@ import { DifficultySelector } from "@/components/DifficultySelector";
 import { QuestionBrowser, Question } from "@/components/QuestionBrowser";
 import { CodeEditor } from "@/components/CodeEditor";
 import { ResultsPanel, TestResult } from "@/components/ResultsPanel";
-import { supabase } from "@/integrations/supabase/client";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { useToast } from "@/hooks/use-toast";
 
@@ -26,18 +25,28 @@ const Index = () => {
     setError(undefined);
     
     try {
-      const { data, error } = await supabase.functions.invoke('get-questions', {
+      // Call the new Python backend endpoint
+      const response = await fetch('http://localhost:8000/get-questions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ difficulty })
       });
-      
-      if (error) throw error;
-      setQuestions(data || []);
-    } catch (error) {
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Failed to fetch questions');
+      }
+
+      const data = await response.json();
+      setQuestions(data.questions || []);
+    } catch (error: any) {
       console.error('Error fetching questions:', error);
       setQuestions([]);
       toast({
         title: "Error Loading Questions",
-        description: "Failed to load questions from backend.",
+        description: error.message || "Failed to load questions from backend.",
         variant: "destructive",
       });
     }
@@ -90,7 +99,7 @@ const Index = () => {
         toast({
           title: "🎉 All Tests Passed!",
           description: `Great job! Your solution passed all ${totalTests} test cases.`,
-        });
+          });
       } else {
         toast({
           title: "Some Tests Failed",
@@ -122,8 +131,6 @@ const Index = () => {
       </div>
     );
   }
-
-  
 
   // Show question browser if no question is selected
   if (!selectedQuestion) {
