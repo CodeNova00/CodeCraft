@@ -5,6 +5,8 @@ from typing import Dict, List, Any
 
 app = FastAPI()
 
+# IMPORTANT: Update allow_origins to include your frontend's Render URL
+# Replace 'https://your-frontend-name.onrender.com' with your actual frontend URL
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -404,4 +406,3 @@ def get_questions(request_body: GetQuestionsRequest):
             status_code=400,
             detail=f"Invalid difficulty level: '{difficulty}'. Must be one of {list(questions_data.keys())}"
         )
-
