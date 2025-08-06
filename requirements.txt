@@ -66,7 +66,7 @@ kiwisolver==1.4.8
 lxml==5.3.2
 MarkupSafe==3.0.2
 matplotlib==3.10.1
-mediapipe==0.10.21
+#mediapipe==0.10.21
 ml_dtypes==0.5.1
 msgpack==1.1.0
 multidict==6.2.0
@@ -83,7 +83,7 @@ pluggy==1.5.0
 postgrest==1.0.1
 propcache==0.3.1
 proto-plus==1.26.1
-protobuf==5.29.4
+# protobuf==5.29.4  # This line caused a conflict and has been commented out.
 pyarrow==21.0.0
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
