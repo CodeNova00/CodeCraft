@@ -7,7 +7,7 @@ CodeCraft is a platform designed to help you master your coding skills and level
 
 ## Homepage
 
-![CodeCraft Homepage](https://i.postimg.cc/XGknZx1J/Screenshot-2025-08-06-223316.png)
+![CodeCraft Homepage](https://i.postimg.cc/cHDyy7fX/Whats-App-Image-2025-08-06-at-22-42-57-f697ec43.jpg)
 
 ### Key Features
 
@@ -25,11 +25,11 @@ Join us and take the next step in your programming career!
 
 ## Choose your Difficulty
 
-![Levels](https://i.postimg.cc/94Tm2cGy/Screenshot-2025-08-06-223528.png)
+![Levels](https://i.postimg.cc/SKM3tFKQ/Whats-App-Image-2025-08-06-at-22-42-56-2ae7a50a.jpg)
 
 Choose your difficulty level from Beginner, Intermediate, or Advanced to start solving problems tailored to your skill set.
 
-![Select Questions to Solve](https://i.postimg.cc/T52fnmBc/Screenshot-2025-08-06-223723.png)
+![Select Questions to Solve](https://i.postimg.cc/XJg2TV6W/Whats-App-Image-2025-08-06-at-22-42-56-5384393d.jpg)
 
 Browse a selection of coding challenges. Simply choose a problem from the list to begin solving it.
 
@@ -45,6 +45,7 @@ Browse a selection of coding challenges. Simply choose a problem from the list t
   Frontend- Vite, React
   Backend- Python
   Deployed on- Render
+
 
 
 
