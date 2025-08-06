@@ -31,5 +31,11 @@ Browse a selection of coding challenges. Simply choose a problem from the list t
 * Select your preferred programming language **Python** , **JavaScript**.
 * The goal is to solve the coding problem by passing all the provided test cases.
 
+  ## Tech Stack
+  Frontend- Vite, React
+  Backend- Python
+  Deployed on- Render
+
+
 
 
