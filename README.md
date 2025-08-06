@@ -6,6 +6,8 @@ CodeCraft is a platform designed to help you master your coding skills and level
 **URL**: https://codecraft-front.onrender.com
 
 ## Homepage
+
+[![CodeCraft Homepage](https://i.postimg.cc/XGknZx1J/Screenshot-2025-08-06-223316.png)](https://postimg.cc/XGknZx1J)
 ### Key Features
 
 * **Diverse Problem Set:** A wide range of problems across various topics and difficulty levels.
@@ -35,6 +37,7 @@ Browse a selection of coding challenges. Simply choose a problem from the list t
   Frontend- Vite, React
   Backend- Python
   Deployed on- Render
+
 
 
 
