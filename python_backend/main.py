@@ -5,11 +5,16 @@ from typing import Dict, List, Any
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "http://127.0.0.1:8080"],
+    allow_origins=[
+        "http://localhost:8080", 
+        "http://127.0.0.1:8080",
+        "https://codecraft-front.onrender.com" 
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"], 
     allow_headers=["*"],
 )
 
@@ -400,3 +405,5 @@ def get_questions(request_body: GetQuestionsRequest):
             status_code=400,
             detail=f"Invalid difficulty level: '{difficulty}'. Must be one of {list(questions_data.keys())}"
         )
+
+

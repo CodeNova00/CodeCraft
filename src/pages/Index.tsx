@@ -26,7 +26,8 @@ const Index = () => {
     
     try {
       // Call the new Python backend endpoint
-      const response = await fetch('http://localhost:8000/get-questions', {
+      // UPDATED: Replaced localhost with your Render backend URL
+      const response = await fetch('https://codecraft-7xpq.onrender.com/get-questions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
