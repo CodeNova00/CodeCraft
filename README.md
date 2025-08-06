@@ -35,7 +35,7 @@ Browse a selection of coding challenges. Simply choose a problem from the list t
 
 ### Code Editor
 
-![Write Solution](https://i.postimg.cc/vgsQHCzk/Screenshot-2025-08-06-223902.png)
+![Write Solution](https://i.postimg.cc/gc5QV2sX/Whats-App-Image-2025-08-06-at-22-42-56-25ea6cfa.jpg)
 
 * Utilize the integrated code editor to write your solution and test your code.
 * Select your preferred programming language **Python** , **JavaScript**.
@@ -45,6 +45,7 @@ Browse a selection of coding challenges. Simply choose a problem from the list t
   Frontend- Vite, React
   Backend- Python
   Deployed on- Render
+
 
 
 
